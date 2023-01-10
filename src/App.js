@@ -1,20 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React from 'react';
-
-// import Drawer from '@mui/material/Drawer';
 import Table from "../src/Components/Table"
-// import Header from "../src/Components/Header"
-
 import Header from "../src/Components/Header"
+// import Sidebar from"../src/Components/Sidebar"
+import {Searchbar} from"../src/Components/Searchbar"
+
 
 const App =()=> {
   return (
     <div className="App">
       
       <div>
-        <Header />
-       <Table/>
+      <Header />
+       <Searchbar />
+      <Table/>
+    
+    
         </div>
     </div>
   );
