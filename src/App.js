@@ -9,15 +9,10 @@ import {Searchbar} from"../src/Components/Searchbar"
 
 const App =()=> {
   return (
-    <div className="App">
-      
-      <div>
-      <Header />
-       <Searchbar />
-      <Table/>
-    
-    
-        </div>
+    <div >
+      <br /><Header /><br />
+      <br /><Searchbar />
+      <br /><Table/>
     </div>
   );
 }

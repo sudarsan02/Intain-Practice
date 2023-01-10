@@ -3,14 +3,17 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 
+import Grid from '@mui/material/Grid';
+// or
+// import { Grid } from '@mui/material';
 // import MenuIcon from '@mui/icons-material/Menu';
 
 export default function ButtonAppBar() {
   return (
-    <Box sx={{ flexGrow: 1 ,}}>
-   <AppBar style={{ background: ' #ccffcc',color:"black",fontSize:"18px" }} >
+    <Box >
+   <AppBar style={{ background: ' #ccffcc',color:"black",fontSize:"18px" , }} >
      <Toolbar>
-         <div>Pool Details</div>
+         <Grid container>Pool Details</Grid >
         </Toolbar>
       </AppBar>
     </Box>
