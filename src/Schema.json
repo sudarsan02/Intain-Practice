@@ -1,21 +1,29 @@
-
 {
-    "title": "A person information",
-    "description": "A simple person data.",
-    "type": "object",
-    "properties": {
-      "firstName": {
-        "type": "string",
-        "title": "First name"
-      },
-      "lastName": {
-        "type": "string",
-        "title": "Last name"
-      },
-      "telephone": {
-        "type": "string",
-        "title": "Telephone",
-        "minLength": 10
-      }
-    }
+  "title": "Create Pool",
+
+  "type": "object",
+  "properties": {
+    "Pool Name": {
+      "type": "string",
+      "title": "Pool name",
+      "isMandatory":"true"
+    },
+    "Pool Description": {
+      "type": "string",
+      "title": "Pool Description"
+    },
+    "Pool Owner Name": {
+      "type": "string",
+      "title": "Pool Owner Name",
+      "minLength": 10
+    },
+    "Pool start Date":{
+        "type":"string",
+        "title":"Pool start Date"
+    },
+    "Pool Expiry Date":{
+      "type":"string",
+      "title":"Pool Expiry Date"
   }
+  }
+}
