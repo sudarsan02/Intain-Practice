@@ -9,7 +9,7 @@ export const Searchbar = () => {
   return (
     <div>
       <Button variant="disabled">ASSIGN POOL</Button>
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <TextField id="outlined-basic" label="Search" variant="outlined" />
     </div>
   );
 };

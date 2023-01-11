@@ -7,8 +7,7 @@ import Grid from '@mui/material/Grid';
 // or
 // import { Grid } from '@mui/material';
 // import MenuIcon from '@mui/icons-material/Menu';
-
-export default function ButtonAppBar() {
+const ButtonAppBar =() =>{
   return (
     <Box >
    <AppBar style={{ background: ' #ccffcc',color:"black",fontSize:"18px" , }} >
@@ -19,3 +18,4 @@ export default function ButtonAppBar() {
     </Box>
   );
 }
+export default ButtonAppBar
