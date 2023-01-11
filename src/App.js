@@ -8,15 +8,23 @@ import {Searchbar} from"../src/Components/Searchbar"
 import Form1 from './Components/Form';
 // import Sbar from"../src/Components/Sbar.css" 
 // import File from "../src/Components/File"
+// import { ProSidebarProvider } from 'react-pro-sidebar';
+import TableDummy from './Components/TableDummy';
+
 
 const App =()=> {
   return (
     <div >
-      {/* <br /><Header /><br />
-      <br /><Searchbar /> */}
-      {/* <Sidebar /> */}
-      {/* <br /><Table/> */}
-      <br/><Form1/>
+   <TableDummy/>
+      {/* <br /><Header /><br /> */}
+       {/* <br /><Searchbar /> */}
+      {/* <br /><Table/>  */}
+      {/* <br/><Form1/> */}
+      {/* <ProSidebarProvider>
+      <Sidebar/>
+</ProSidebarProvider>; */}
+
+      
     </div>
   );
 }

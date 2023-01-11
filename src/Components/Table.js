@@ -22,31 +22,42 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
+import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
+import ViewColumnIcon from '@mui/icons-material/ViewColumn';
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
-function createData(name, calories, fat, carbs, protein) {
+
+
+function createData(Pool, Poolowner, Poolname, Pooldes, Poolstart, Assests, createdDate) {
   return {
-    name,
-    calories,
-    fat,
-    carbs,
-    protein,
+    Pool,
+    Poolowner,
+    Poolname,
+    Pooldes,
+    Poolstart,
+    Assests,
+    createdDate
   };
+  
 }
 
+
 const rows = [
-  createData('qwertyuio3456789fghj', 'ABC', 3.7, 67, 4.3),
-  createData('qwertyuio3456789fghj', 'ABC', 25.0, 51, 4.9),
-  createData('qwertyuio3456789fghj', 'ABC', 16.0, 24, 6.0),
-  createData(' qwertyuio3456789fghj', 'ABC', 6.0, 24, 4.0),
-  createData('qwertyuio3456789fghj', 'ABC', 16.0, 49, 3.9),
-  createData('qwertyuio3456789fghj', 'ABC', 3.2, 87, 6.5),
-  createData(' sandwicqwertyuio3456789fghjh', 'ABC', 9.0, 37, 4.3),
-  createData('qwertyuio3456789fghj', 'ABC', 0.0, 94, 0.0),
-  createData('qwertyuio3456789fghj', 'ABC', 26.0, 65, 7.0),
-  createData('qwertyuio3456789fghj', 'ABC', 0.2, 98, 0.0),
-  createData('qwertyuio3456789fghj', 'ABC', 0, 81, 2.0),
-  createData('qwertyuio3456789fghj', 'ABC', 19.0, 9, 37.0),
-  createData('qwertyuio3456789fghj', 'ABC', 18.0, 63, 4.0),
+  createData('qwertyuio3456789fghj', 'ABC', 3.7, 67, 4.3, 1, '01-02-2022'),
+  createData('qwertyuio3456789fghj', 'ABC', 25.0, 51, 4.9, 1, '02-02-2022'),
+  createData('qwertyuio3456789fghj', 'ABC', 16.0, 24, 6.0, 1, '04-02-2022'),
+  createData(' qwertyuio3456789fghj', 'ABC', 6.0, 24, 4.0, 1, '05-02-2022'),
+  createData('qwertyuio3456789fghj', 'ABC', 16.0, 49, 3.9, 1, '10-02-2022'),
+  createData('qwertyuio3456789fghj', 'ABC', 3.2, 87, 6.5, 1, '25-02-2022'),
+  createData('cqwertyuio3456789fghjh', 'ABC', 9.0, 37, 4.3, 1, '05-03-2022'),
+  createData('qwertyuio3456789fghj', 'ABC', 0.0, 94, 0.0, 1, '15-03-2022'),
+  createData('qwertyuio3456789fghj', 'ABC', 26.0, 65, 7.0, 1, '23-04-2022'),
+  createData('qwertyuio3456789fghj', 'ABC', 0.2, 98, 0.0, 1, '15-05-2022'),
+  createData('qwertyuio3456789fghj', 'ABC', 0, 81, 2.0, 1, '25-05-2022'),
+  createData('qwertyuio3456789fghj', 'ABC', 19.0, 9, 37.0, 1, '05-06-2022'),
+  createData('qwertyuio3456789fghj', 'ABC', 18.0, 63, 4.0, 1, '14-06-2022'),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -122,14 +133,37 @@ const headCells = [
   },
 ];
 
-const EnhancedTableHead=(props) =>{
+const EnhancedTableHead = (props) => {
   const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
     props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
 
+
+  // const [search, setSearch] = useState("")
+  // const [show, setShow] = useState(false)
+
+
+  // const FilterList = search.filter(pname => {
+  //   return (
+  //     pname.Pool
+  //   )
+  // })
+
+  // const handleChange = e => {
+  //   setSearch(e.target.value);
+  //   if (e.target.value === "") {
+  //     setShow(false);
+  //   }
+  //   else {
+  //     setShow(true);
+  //   }
+  // };
   return (
+    <>
+     <Button variant="disabled">ASSIGN POOL</Button>
+      <TextField id="outlined-basic" label="Search" variant="outlined" />
     <TableHead>
       <TableRow>
         <TableCell padding="checkbox">
@@ -140,7 +174,7 @@ const EnhancedTableHead=(props) =>{
             onChange={onSelectAllClick}
             inputProps={{
               'aria-label': 'select all desserts',
-            }}  
+            }}
           />
         </TableCell>
         {headCells.map((headCell) => (
@@ -166,6 +200,7 @@ const EnhancedTableHead=(props) =>{
         ))}
       </TableRow>
     </TableHead>
+    </>
   );
 }
 
@@ -192,25 +227,7 @@ function EnhancedTableToolbar(props) {
         }),
       }}
     >
-      {numSelected > 0 ? (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          color="inherit"
-          variant="subtitle1"
-          component="div"
-        >
-          {numSelected} selected
-        </Typography>
-      ) : (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          variant="h6"
-          id="tableTitle"
-          component="div"
-        >
-          Nutrition
-        </Typography>
-      )}
+
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
@@ -219,8 +236,11 @@ function EnhancedTableToolbar(props) {
           </IconButton>
         </Tooltip>
       ) : (
-        <Tooltip title="Filter list">
-          <IconButton>
+        <Tooltip  >
+          <IconButton >
+            <CloudDownloadIcon />
+            <LocalPrintshopIcon />
+            <ViewColumnIcon />
             <FilterListIcon />
           </IconButton>
         </Tooltip>
@@ -234,34 +254,19 @@ EnhancedTableToolbar.propTypes = {
 };
 
 export default function EnhancedTable() {
-  const [order, setOrder] = useState('asc');
-  const [orderBy, setOrderBy] = useState('calories');
+  const [order, setOrder] = useState('');
+  const [orderBy, setOrderBy] = useState('');
   const [selected, setSelected] = useState([]);
   const [page, setPage] = useState(0);
   const [dense, setDense] = useState(false);
-  const [rowsPerPage, setRowsPerPage] =useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  const handleRequestSort = (event, property) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
-    setOrderBy(property);
-  };
-
-  // const handleSelectAllClick = (event) => {
-  //   if (event.target.checked) {
-  //     const newSelected = rows.map((n) => n.name);
-  //     setSelected(newSelected);
-  //     return;
-  //   }
-  //   setSelected([]);
-  // };
-
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
+  const handleClick = (event, Pool) => {
+    const selectedIndex = selected.indexOf(Pool);
     let newSelected = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, Pool);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -285,13 +290,11 @@ export default function EnhancedTable() {
     setPage(0);
   };
 
-  const handleChangeDense = (event) => {
-    setDense(event.target.checked);
-  };
+  // const handleChangeDense = (event) => {
+  //   setDense(event.target.checked);
+  // };
 
-  const isSelected = (name) => selected.indexOf(name) !== -1;
-
-  // Avoid a layout jump when reaching the last page with empty rows.
+  const isSelected = (Pool) => selected.indexOf(Pool) !== -1;
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
@@ -306,28 +309,28 @@ export default function EnhancedTable() {
             size={dense ? 'small' : 'medium'}
           >
             <EnhancedTableHead
-              // numSelected={selected.length}
-              // order={order}
-              // orderBy={orderBy}
-              // onSelectAllClick={handleSelectAllClick}
-              // onRequestSort={handleRequestSort}
-              // rowCount={rows.length}
+            // numSelected={selected.length}
+            // order={order}
+            // orderBy={orderBy}
+            // onSelectAllClick={handleSelectAllClick}
+            // onRequestSort={handleRequestSort}
+            // rowCount={rows.length}
             />
             <TableBody>
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.name);
+                  const isItemSelected = isSelected(row.Pool);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.name)}
+                      onClick={(event) => handleClick(event, row.Pool)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
+                      key={row.Pool}
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
@@ -345,12 +348,14 @@ export default function EnhancedTable() {
                         scope="row"
                         padding="none"
                       >
-                        {row.name}
+                        {row.Pool}
                       </TableCell>
-                      <TableCell align="right">{row.calories}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
-                      <TableCell align="right">{row.protein}</TableCell>
+                      <TableCell align="right">{row.Poolowner}</TableCell>
+                      <TableCell align="right">{row.Poolname}</TableCell>
+                      <TableCell align="right">{row.Pooldes}</TableCell>
+                      <TableCell align="right">{row.Poolstart}</TableCell>
+                      <TableCell align="right">{row.Assests}</TableCell>
+                      <TableCell align="right">{row.createdDate}</TableCell>
                     </TableRow>
                   );
                 })}
@@ -376,7 +381,7 @@ export default function EnhancedTable() {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
-      
+
     </Box>
   );
 }

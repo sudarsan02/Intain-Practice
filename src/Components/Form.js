@@ -4,15 +4,18 @@
 import Form from "react-jsonschema-form"
 import React from 'react'
 const schema = require("../Schema.json")
+const uiSchema=require("../UISchema.json")
 const Form1 = () => {
+  
     return (
+
         <div>
 
 
     <Form
         schema={schema}
-
-        // uiSchema={uiSchema}
+        uiSchema={uiSchema}
+        
     >
       <div />
     </Form>

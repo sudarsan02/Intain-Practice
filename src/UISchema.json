@@ -1,0 +1,8 @@
+{
+    "firstName": {
+      "ui:disabled": true
+    },
+    "telephone": {
+      "ui:help": "The phone number that can be used to contact you"
+    }
+  }
