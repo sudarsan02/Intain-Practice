@@ -18,12 +18,8 @@ const App =()=> {
    
       <br /><Header /><br />
      <br/> <TableDummy/><br/>
-       {/* <br /><Searchbar /> */}
-      {/* <br /><Table/>  */}
-      {/* <br/><Form1/> */}
-      <ProSidebarProvider>
-      <Sidebar/>
-</ProSidebarProvider>;
+{/*       
+      <Sidebar/> */}
 
       
     </div>
