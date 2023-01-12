@@ -8,7 +8,7 @@ import {Searchbar} from"../src/Components/Searchbar"
 import Form1 from './Components/Form';
 // import Sbar from"../src/Components/Sbar.css" 
 // import File from "../src/Components/File"
-// import { ProSidebarProvider } from 'react-pro-sidebar';
+import { ProSidebarProvider } from 'react-pro-sidebar';
 import TableDummy from './Components/TableDummy';
 
 
@@ -21,9 +21,9 @@ const App =()=> {
        {/* <br /><Searchbar /> */}
       {/* <br /><Table/>  */}
       {/* <br/><Form1/> */}
-      {/* <ProSidebarProvider>
+      <ProSidebarProvider>
       <Sidebar/>
-</ProSidebarProvider>; */}
+</ProSidebarProvider>;
 
       
     </div>
