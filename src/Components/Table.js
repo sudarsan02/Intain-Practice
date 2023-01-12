@@ -176,6 +176,7 @@ const EnhancedTableHead = (props) => {
               'aria-label': 'select all desserts',
             }}
           />
+         
         </TableCell>
         {headCells.map((headCell) => (
           <TableCell

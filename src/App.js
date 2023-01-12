@@ -15,8 +15,9 @@ import TableDummy from './Components/TableDummy';
 const App =()=> {
   return (
     <div >
-   <TableDummy/>
-      {/* <br /><Header /><br /> */}
+   
+      <br /><Header /><br />
+     <br/> <TableDummy/><br/>
        {/* <br /><Searchbar /> */}
       {/* <br /><Table/>  */}
       {/* <br/><Form1/> */}
