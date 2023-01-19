@@ -1,0 +1,29 @@
+{
+    "title": "Create Pool",
+  
+    "type": "object",
+    "properties": {
+      "Pool Name": {
+        "type": "string",
+        "title": "Pool name",
+        "isMandatory":"true"
+      },
+      "Pool Description": {
+        "type": "string",
+        "title": "Pool Description"
+      },
+      "Pool Owner Name": {
+        "type": "string",
+        "title": "Pool Owner Name",
+        "minLength": 10
+      },
+      "Pool start Date":{
+          "type":"string",
+          "title":"Pool start Date"
+      },
+      "Pool Expiry Date":{
+        "type":"string",
+        "title":"Pool Expiry Date"
+    }
+    }
+}
