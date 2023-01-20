@@ -1,13 +1,15 @@
 
-import './App.css';
+
 import Sidebar from"../src/Components/Sidebar"
 import Form from "../src/Components/Form"
+import Footer from "../src/Components/Footer"
 
 function App() {
   return (
-    <div className="App">
+    <div >
   <Sidebar/>
-  {/* <Form /> */}
+  {/* <Footer /> */}
+  {/* <Form   /> */}
     </div>
   );
 }

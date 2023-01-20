@@ -1,88 +1,45 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
-import Form from 'react-jsonschema-form';
-import dayjs from 'dayjs';
-import TextField from '@mui/material/TextField';
-// import { DatePicker } from '@mui/x-date-pickers-pro/DatePicker';
-// import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+import { Button } from "@mui/material";
+import * as React from "react";
+import Form from "react-jsonschema-form";
+import "../App.css";
 
-export default function ResponsiveDialog() {
-  const [open, setOpen] = React.useState('true');
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+const ResponsiveDialog = () => {
   const schema = require("../Schema.json");
 
-
-  const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
-
-  const handleChange = (newValue) => {
-    setValue(newValue);
-  };
+  const onSubmit = ({ formData }) => alert("Data submitted: ", formData);
 
   return (
-    <Form schema={schema} >
-      
-      <Dialog
-        fullScreen={fullScreen}
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="responsive-dialog-title"
+    <div
+      style={{
+        width: "40%",
+        backgroundColor: "red",
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+        width:"40%"
+      }}
+    >
+      <div className="App">
+        <Form schema={schema} onSubmit={onSubmit} children={true} />
+      </div>
+      <div
+        style={{ display: "flex", justifyContent: "flex-end", padding: "2%" }}
       >
-      <TextField id="outlined-basic" label="Pool Name" variant="outlined" />
-      <TextField id="outlined-basic" label="Pool Description" variant="outlined" />
-      <TextField id="outlined-basic" label="Pool owner Name" variant="outlined" />
-     
-
-      {/* <DesktopDatePicker
-          label="Date desktop"
-          inputFormat="MM/DD/YYYY"
-          value={value}
-          onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
-        /> */}
-       
-
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Disagree
-          </Button>
-          <Button onClick={handleClose} autoFocus>
-            Agree
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </Form>
+        <Button
+          style={{
+            backgroundColor: "#f6f6f6",
+            color: "#5A5A5A",
+            marginRight: "3%",
+          }}
+        >
+          CANCEL
+        </Button>
+        <Button style={{ backgroundColor: "#00796B", color: "white" }}>
+          CREATE POOL
+        </Button>
+      </div>
+    </div>
   );
-}
+};
 
-
-
-// import Form from "react-jsonschema-form";
-// import React from "react";
-// // const schema = require("../Schema.json")
-// const schema = require("../Schema.json");
-
-// const Form1 = () => {
-//   return (
-//     <div>
-//       <Form schema={schema}>
-      
-//       </Form>
-//     </div>
-//   );
-// };
-
-// export default Form1;
+export default ResponsiveDialog;

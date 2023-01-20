@@ -12,6 +12,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import AlbumIcon from "@mui/icons-material/Album";
 import Table from "../Components/Table";
 import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import LogoutIcon from "@mui/icons-material/Logout";
 import {ThemeProvider, createTheme } from '@mui/system';
@@ -104,6 +105,7 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 3 }}>
         <Header />
         <Table />
+        <Footer />
       </Box>
     </Box>
   );
