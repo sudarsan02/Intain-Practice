@@ -2,7 +2,11 @@
   "title": "",
   "description": "Create Pool",
   "type": "object",
-  "required": ["Pool Name", "Pool Description", "Pool Owner Name"],
+  "required": [
+    "Pool Name",
+    "Pool Description",
+    "Pool Owner Name"
+  ],
   "properties": {
     "Pool Name": {
       "type": "string",
@@ -10,19 +14,19 @@
     },
     "Pool Description": {
       "type": "string",
-      "ui:placeholder": "Pool Description"
+      "placeholder": "Pool Description"
     },
     "Pool Owner Name": {
       "type": "string",
       "placeholder": "Pool Owner Name"
     },
-    "Pool start Date": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "Pool Expiry Date": {
-      "type": "string",
-      "format": "date-time"
-    }
+    "Pool start Date": { 
+  "type": "string", 
+  "format": "date-time"
+},
+"Pool Expiry Date": { 
+  "type": "string", 
+  "format": "date-time"
+}
   }
 }

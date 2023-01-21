@@ -15,7 +15,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import LogoutIcon from "@mui/icons-material/Logout";
-import {ThemeProvider, createTheme } from '@mui/system';
+import { ThemeProvider, createTheme } from "@mui/system";
 const drawerWidth = 240;
 
 const closedMixin = (theme) => ({
@@ -54,30 +54,30 @@ export default function MiniDrawer() {
   // const handleDrawerClose = () => {
   //   setOpen(false);
   // };
-//   const theme = createTheme({
-//     palette: {
-//       background: {
-//         paper: '#fff',
-//       },
-//       text: {
-//         primary: '#173A5E',
-//         secondary: '#46505A',
-//       },
-//       action: {
-//         active: '#001E3C',
-//       },
-//       success: {
-//         dark: '#009688',
-//       },
-//     },
-//   });
+  //   const theme = createTheme({
+  //     palette: {
+  //       background: {
+  //         paper: '#fff',
+  //       },
+  //       text: {
+  //         primary: '#173A5E',
+  //         secondary: '#46505A',
+  //       },
+  //       action: {
+  //         active: '#001E3C',
+  //       },
+  //       success: {
+  //         dark: '#009688',
+  //       },
+  //     },
+  //   });
 
   return (
-    <Box sx={{ display: "flex",backgroundColor:"#DFE3E1" }}>
+    <Box sx={{ display: "flex", backgroundColor: "#DFE3E1" }}>
       <div>
-        <Drawer variant="permanent"   >
-          <List >
-            <ListItem disablePadding >
+        <Drawer variant="permanent">
+          <List>
+            <ListItem disablePadding>
               <ListItemButton>
                 <>
                   <div>
