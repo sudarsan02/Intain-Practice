@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, TableBody } from "@mui/material";
 import React from "react";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
@@ -173,6 +173,17 @@ const rows = [
 
 const TableDummy = () => {
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -228,7 +239,6 @@ const TableDummy = () => {
             <CloudDownloadIcon />
           </div>
           <div style={{ marginRight: "1%" }}>
-            {" "}
             <LocalPrintshopIcon />
           </div>
           <div style={{ marginRight: "1%" }}>
@@ -263,46 +273,60 @@ const TableDummy = () => {
                 <StyledTableCell>Action</StyledTableCell>
               </TableRow>
             </TableHead>
-            {rows
-              .filter((fil) => fil.Pool.toLowerCase().includes(search))
-              .map((row) => (
-                <TableRow>
-                  <TableCell key={row.Pool * Math.random()}>
-                    <Checkbox
-                      color="primary"
-                      inputProps={{
-                        "aria-label": "select all desserts",
-                      }}
-                    />
+            <TableBody>
+              {rows
+                .filter((fil) => fil.Pool.toLowerCase().includes(search))
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 
-                    {row.Pool}
-                  </TableCell>
-                  <TableCell key={row.Poolowner * Math.random()}>
-                    {row.Poolowner}
-                  </TableCell>
-                  <TableCell key={row.Poolname * Math.random()}>
-                    {row.Poolname}
-                  </TableCell>
-                  <TableCell key={row.Pooldes * Math.random()}>
-                    {row.Pooldes}
-                  </TableCell>
-                  <TableCell key={row.Poolstart * Math.random()}>
-                    {row.Poolstart}
-                  </TableCell>
-                  <TableCell key={row.Assests * Math.random()}>
-                    {row.Assests}
-                  </TableCell>
-                  <TableCell key={row.createdDate * Math.random()}>
-                    {row.createdDate}
-                  </TableCell>
+                .map((row) => {
+                  return (
+                    <TableRow>
+                      <TableCell key={row.Pool * Math.random()}>
+                        <Checkbox
+                          color="primary"
+                          inputProps={{
+                            "aria-label": "select all desserts",
+                          }}
+                        />
 
-                  <TableCell key={row.createdDate * Math.random()}>
-                    {row.Action}
-                  </TableCell>
-                </TableRow>
-              ))}
+                        {row.Pool}
+                      </TableCell>
+                      <TableCell key={row.Poolowner * Math.random()}>
+                        {row.Poolowner}
+                      </TableCell>
+                      <TableCell key={row.Poolname * Math.random()}>
+                        {row.Poolname}
+                      </TableCell>
+                      <TableCell key={row.Pooldes * Math.random()}>
+                        {row.Pooldes}
+                      </TableCell>
+                      <TableCell key={row.Poolstart * Math.random()}>
+                        {row.Poolstart}
+                      </TableCell>
+                      <TableCell key={row.Assests * Math.random()}>
+                        {row.Assests}
+                      </TableCell>
+                      <TableCell key={row.createdDate * Math.random()}>
+                        {row.createdDate}
+                      </TableCell>
+
+                      <TableCell key={row.createdDate * Math.random()}>
+                        {row.Action}
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+            </TableBody>
           </Table>
-          <TablePagination rowsPerPageOptions={[5, 10, 25]} component="div" />
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={rows.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
         </>
       </div>
     </div>
