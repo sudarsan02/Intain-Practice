@@ -1,6 +1,6 @@
 {
   "title": "",
-  "description": "Create Pool",
+  "description": "",
   "type": "object",
   "required": [
     "Pool Name",
