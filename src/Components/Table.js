@@ -175,7 +175,7 @@ const TableDummy = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-
+  const [selected, setSelected] = useState([]);
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -194,6 +194,7 @@ const TableDummy = () => {
       fontSize: 10,
     },
   }));
+
 
   return (
     <div>
@@ -252,16 +253,17 @@ const TableDummy = () => {
             <li key={row.Pooldes*Math.random()}>{row.Pool}</li>
              ))} */}
         <>
-          {/* 
-<TableHead style={{}}>
-            {head.map((thead)=>thead.Pool)}
-          </TableHead> */}
+       
 
           <Table>
             <TableHead style={{ backgroundColor: "		#AFEEEE" }}>
               <TableRow>
                 <StyledTableCell>
-                  <Checkbox />
+                  <Checkbox
+                    value="SlctAll"
+                    id="slctAll"
+                    onClick={(e) => console.log(e.target.checked)}
+                  />
                   Pool Id
                 </StyledTableCell>
                 <StyledTableCell>Pool Owner Name</StyledTableCell>

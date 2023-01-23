@@ -6,6 +6,8 @@ import Form from "react-jsonschema-form";
 import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 
+
+
 const schema = require("../Schema.json");
 const onSubmit = ({ formData }) => alert("Data submitted: ", formData);
 
@@ -44,7 +46,7 @@ export default function BasicModal() {
         <Box sx={style}>
           <div className="legend">
             <div>Create Pool</div>
-            <div>
+            <div>   
               <CloseIcon onClick={handleClose} className="cursor" />
             </div>
           </div>
